@@ -32,6 +32,7 @@ This application provides tools for generating and evaluating exams, including a
 - **React**:  Frontend library for the test generation tool 
 
 ## Available Scripts (for test generation)
+### `npm install`
 ### `npm start`
 Launches the development mode for the frontend  
 Open [http://localhost:3000](http://localhost:3000) in your browser.

@@ -1,8 +1,77 @@
-- **OpenCV**: Image processing tasks. Install: `pip install opencv-python`
-- **NumPy**: Numerical operations for images. Install: `pip install numpy`
-- **Tkinter**: GUI interface. (Included with Python)
-- **Pillow**: Image processing. Install: `pip install Pillow`
-- **pdf2image**: Converts PDFs to images. Install: `pip install pdf2image`
-- **reportlab**: PDF creation. Install: `pip install reportlab`
-- **os**: Used for interacting with the operating system, such as file and directory operations.
-- **ttk**: Part of tkinter, used for themed widgets.Package: ttk (included with tkinter)
+# Core Libraries for Image Processing and PDF Handling
+opencv-python==4.10.0.84      # Image processing tasks
+numpy==1.26.4                 # Numerical operations for images
+pillow==8.4.0                 # Image processing
+pdf2image==1.17.0             # Converts PDFs to images
+reportlab==3.6.5              # PDF creation
+
+# GUI Libraries
+ttk                           # Themed widgets (part of tkinter)
+
+# System Libraries
+os                             # Interacting with the operating system, file and directory operations
+
+# Optional Libraries (for additional functionality)
+pyqt5==5.15.10                # Qt framework for GUI applications (optional)
+pywin32==305.1                # Windows specific features (optional)
+
+# Networking and Communication Libraries
+aiobotocore==2.4.0            # Asynchronous AWS SDK for Python
+aiohttp==3.8.1                # Asynchronous HTTP Client/Server for Python
+aiosignal==1.3.1              # Asynchronous Signal Handling
+boto3==1.24.0                 # Amazon Web Services SDK
+requests==2.28.1              # HTTP library for Python
+requests-file==1.5.1          # File handling for requests library
+websocket-client==1.4.2       # WebSocket client for Python
+
+# Data Processing Libraries
+pandas==2.2.2                 # Data analysis library
+scipy==1.13.1                 # Scientific computing library
+scikit-image==0.22.0          # Image processing with scikit-image
+matplotlib==3.7.0             # Plotting library for Python
+seaborn==0.11.2               # Data visualization library
+plotly==5.12.0                # Interactive graphing library
+bokeh==2.5.2                  # Interactive visualization library
+
+# Testing Libraries
+pytest==7.2.2                 # Testing framework for Python
+pytest-cov==3.0.0             # Code coverage tool for pytest
+flake8==6.0.0                 # Code style checker
+black==23.1.0                 # Code formatter
+
+# Development and Build Tools
+setuptools==69.5.1            # Packaging and distribution library
+wheel==0.43.0                 # Packaging tool for Python
+twisted==22.10.0              # Event-driven networking engine
+Sphinx==5.1.1                 # Documentation generation
+mypy==0.981                   # Static type checker for Python
+
+# Utility Libraries
+python-dotenv==0.21.1         # Managing environment variables
+Pillow==8.4.0                 # Python Imaging Library (PIL)
+cryptography==39.0.1          # Cryptographic library for Python
+pyyaml==6.0                   # YAML parser and emitter for Python
+pycryptodome==3.15.0          # Cryptography library
+pyodbc==4.0.32                # ODBC interface for Python
+python-dateutil==2.8.2        # Parsing of dates and times
+pytz==2023.3                  # Timezone library for Python
+pyarrow==11.0.0               # Python interface to Arrow
+pydeck==0.7.1                 # Python binding for deck.gl
+
+# File and Directory Management
+pyfilesystem2==2.7.0          # File system abstraction library
+filelock==3.8.0               # File locking library
+pathspec==0.10.1              # Path matching library
+pywin32==305.1                # Windows-specific functionality
+
+# Other Useful Libraries
+pydantic==2.0.0               # Data validation and settings management
+pyqt5-sip==13.1.0             # PyQt5 bindings for SIP
+pyzmq==25.0.2                 # ZeroMQ bindings for Python
+pyOpenSSL==23.1.1             # OpenSSL bindings for Python
+pywin32-ctypes==0.2.0         # ctypes for Windows-specific functionality
+
+# Additional Libraries
+mysql-connector-python        # MySQL database connector
+PyPDF2                        # PDF manipulation library
+pytesseract                   # Tesseract OCR library
