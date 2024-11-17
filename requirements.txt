@@ -1,0 +1,8 @@
+- **OpenCV**: Image processing tasks. Install: `pip install opencv-python`
+- **NumPy**: Numerical operations for images. Install: `pip install numpy`
+- **Tkinter**: GUI interface. (Included with Python)
+- **Pillow**: Image processing. Install: `pip install Pillow`
+- **pdf2image**: Converts PDFs to images. Install: `pip install pdf2image`
+- **reportlab**: PDF creation. Install: `pip install reportlab`
+- **os**: Used for interacting with the operating system, such as file and directory operations.
+- **ttk**: Part of tkinter, used for themed widgets.Package: ttk (included with tkinter)

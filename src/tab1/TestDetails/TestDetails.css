@@ -1,0 +1,66 @@
+.creation-container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+}
+.creation-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.creation-input {
+    width: 100%;
+    font-size: 16px;
+    height: 40px;
+    padding-left: 16px;
+}
+
+.creation-button {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    margin: 8px;
+}
+
+.error-message {
+    color: red;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.warning-message {
+    color: #999;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.tab1-container {
+    width: 100%;
+}
+
+.question-answer-input-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field-num-qurestions .input-field-num-answers {
+    width: 45%;
+}
+
+.control-buttons-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.reset-button {
+    color: lightslategray; /* Replace with the color you want */
+  }
