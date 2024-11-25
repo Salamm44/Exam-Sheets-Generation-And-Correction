@@ -50,3 +50,6 @@ Thumbs.db
 # Assets and processed images directory
 /assets/
 /assets/processed_images/
+
+# Database
+*.db
