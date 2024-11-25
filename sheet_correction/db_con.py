@@ -1,94 +1,95 @@
 import os
-import mysql.connector
-from mysql.connector import Error
+import sqlite3
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from PyPDF2 import PdfReader, PdfWriter
 import tkinter as tk
 
 class PDFGenerator:
-    def __init__(self, host='localhost', port=3306, user='root', password='SSSShhhh_1000', database='Students'):
-        self.host = host
-        self.port = port
-        self.user = user
-        self.password = password
+    def __init__(self, database='students.db'):
         self.database = database
         self.connection = None
 
     def connect(self):
         try:
-            self.connection = mysql.connector.connect(
-                host=self.host,
-                port=self.port,
-                user=self.user,
-                password=self.password,
-                database=self.database
-            )
-            if self.connection.is_connected():
-                print("Connected to MySQL database")
-        except Error as e:
+            self.connection = sqlite3.connect(self.database)
+            print("Connected to SQLite database")
+            self.initialize_database()
+        except sqlite3.Error as e:
             print(f"Error: {e}")
             self.connection = None
 
+    def initialize_database(self):
+        """Initialize the database using the SQL script file."""
+        if self.connection:
+            cursor = self.connection.cursor()
+
+            # Path to the SQL file
+            sql_file_path = os.path.join(os.getcwd(), "databaseStructure.sql")
+
+            try:
+                # Read the SQL script
+                with open(sql_file_path, "r", encoding="utf-8") as sql_file:
+                    sql_script = sql_file.read()
+
+                # Execute the SQL script
+                cursor.executescript(sql_script)
+                print("Database initialized using 'databaseStructure.sql'")
+
+            except FileNotFoundError:
+                print(f"SQL file '{sql_file_path}' not found. Ensure the file exists in the project root.")
+            except sqlite3.Error as e:
+                print(f"An error occurred while executing the SQL script: {str(e)}")
+            finally:
+                self.connection.commit()
+
+
     def close(self):
-        if self.connection and self.connection.is_connected():
+        if self.connection:
             self.connection.close()
-            print("MySQL connection closed")
+            print("SQLite connection closed")
 
     def fetch_students(self):
         if self.connection:
             cursor = self.connection.cursor()
-            cursor.execute("SELECT stu_id, stu_Name FROM Students")
-            return cursor.fetchall()  
-        
+            cursor.execute("SELECT stu_id, stu_name FROM students")
+            return cursor.fetchall()
+
     def add_student(self, name):
-     if self.connection:
-         cursor = self.connection.cursor()
-         try:
-             cursor.execute("INSERT INTO students (stu_name) VALUES (%s)", (name,))
-             self.connection.commit() 
-             print(f"Student '{name}' added successfully.")
-         except Exception as e:
-             print(f"An error occurred: {str(e)}")
-         finally:
-             cursor.close()  
-     else:
-        print("No database connection.")
-
-
-    def add_score(self, id ,score):
         if self.connection:
             cursor = self.connection.cursor()
             try:
-                cursor.execute("UPDATE students SET score = %s WHERE stu_id = %s", (score, id))
+                cursor.execute("INSERT INTO students (stu_name) VALUES (?)", (name,))
+                self.connection.commit()
+                print(f"Student '{name}' added successfully.")
+            except sqlite3.Error as e:
+                print(f"An error occurred: {str(e)}")
+
+    def add_score(self, id, score):
+        if self.connection:
+            cursor = self.connection.cursor()
+            try:
+                cursor.execute("UPDATE students SET score = ? WHERE stu_id = ?", (score, id))
                 self.connection.commit()
                 print(f"Score '{score}' updated successfully for student ID '{id}'.")
-            except Exception as e:
+            except sqlite3.Error as e:
                 print(f"An error occurred: {str(e)}")
-            finally:
-                cursor.close()
-        else:
-            print("No database connection!")
-    
+
     def clear_students_file(self):
         if self.connection:
             cursor = self.connection.cursor()
             try:
-                cursor.execute("DELETE FROM Students")
-                self.connection.commit()  
+                cursor.execute("DELETE FROM students")
+                self.connection.commit()
                 print("All student records have been deleted.")
-            except Exception as e:
+            except sqlite3.Error as e:
                 print(f"An error occurred: {str(e)}")
-            finally:
-                cursor.close()  
-        else:
-            print("No database connection!")
 
     def generate_pdf(self, template_pdf_path, output_folder):
         students = self.fetch_students()
 
         if not os.path.exists(output_folder):
-            os.makedirs(output_folder)  
+            os.makedirs(output_folder)
 
         for student_id, student_name in students:
             output_path = os.path.join(output_folder, f"{student_name}.pdf")
@@ -100,7 +101,7 @@ class PDFGenerator:
             temp_canvas_path = f"{student_name}_temp.pdf"
             c = canvas.Canvas(temp_canvas_path, pagesize=A4)
             c.setFont("Helvetica", 18)
-            c.drawString(417.0, 800.0, f"{student_id}")  
+            c.drawString(417.0, 800.0, f"{student_id}")
             c.save()
             
             overlay_reader = PdfReader(temp_canvas_path)
@@ -116,5 +117,3 @@ class PDFGenerator:
             os.remove(temp_canvas_path)
 
             print(f"Generated PDF for: {student_name}")
-
-

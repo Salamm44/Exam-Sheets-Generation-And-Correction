@@ -1,19 +1,14 @@
 # Core Libraries for Image Processing and PDF Handling
 opencv-python==4.10.0.84      # Image processing tasks
 numpy==1.26.4                 # Numerical operations for images
-pillow==8.4.0                 # Image processing
+pillow                        # Image processing
 pdf2image==1.17.0             # Converts PDFs to images
 reportlab==3.6.5              # PDF creation
 
-# GUI Libraries
-ttk                           # Themed widgets (part of tkinter)
-
-# System Libraries
-os                             # Interacting with the operating system, file and directory operations
 
 # Optional Libraries (for additional functionality)
 pyqt5==5.15.10                # Qt framework for GUI applications (optional)
-pywin32==305.1                # Windows specific features (optional)
+pywin32                       # Windows specific features (optional)
 
 # Networking and Communication Libraries
 aiobotocore==2.4.0            # Asynchronous AWS SDK for Python
@@ -31,7 +26,7 @@ scikit-image==0.22.0          # Image processing with scikit-image
 matplotlib==3.7.0             # Plotting library for Python
 seaborn==0.11.2               # Data visualization library
 plotly==5.12.0                # Interactive graphing library
-bokeh==2.5.2                  # Interactive visualization library
+bokeh                         # Interactive visualization library
 
 # Testing Libraries
 pytest==7.2.2                 # Testing framework for Python
@@ -48,7 +43,7 @@ mypy==0.981                   # Static type checker for Python
 
 # Utility Libraries
 python-dotenv==0.21.1         # Managing environment variables
-Pillow==8.4.0                 # Python Imaging Library (PIL)
+Pillow==9.0.1                 # Python Imaging Library (PIL)
 cryptography==39.0.1          # Cryptographic library for Python
 pyyaml==6.0                   # YAML parser and emitter for Python
 pycryptodome==3.15.0          # Cryptography library
@@ -59,19 +54,17 @@ pyarrow==11.0.0               # Python interface to Arrow
 pydeck==0.7.1                 # Python binding for deck.gl
 
 # File and Directory Management
-pyfilesystem2==2.7.0          # File system abstraction library
 filelock==3.8.0               # File locking library
 pathspec==0.10.1              # Path matching library
-pywin32==305.1                # Windows-specific functionality
+pywin32                       # Windows-specific functionality
 
 # Other Useful Libraries
 pydantic==2.0.0               # Data validation and settings management
-pyqt5-sip==13.1.0             # PyQt5 bindings for SIP
+pyqt5-sip                     # PyQt5 bindings for SIP
 pyzmq==25.0.2                 # ZeroMQ bindings for Python
 pyOpenSSL==23.1.1             # OpenSSL bindings for Python
 pywin32-ctypes==0.2.0         # ctypes for Windows-specific functionality
 
 # Additional Libraries
-mysql-connector-python        # MySQL database connector
 PyPDF2                        # PDF manipulation library
 pytesseract                   # Tesseract OCR library
