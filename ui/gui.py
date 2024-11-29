@@ -22,17 +22,22 @@ def init_gui():
     button_width = 20
 
 
-    def reset_students_file():
-        try:
-            pdf_gen = PDFGenerator(database='Students')
-            pdf_gen.connect()
-            pdf_gen.clear_students_file()  
-            pdf_gen.close()
-            tk.messagebox.showinfo("Reset", "The all students database has been reset.")
-        except Exception as e:
-            tk.messagebox.showerror("Error", f"An error occurred: {str(e)}")
+    
 
-        
+    def reset_students_file():
+      try:
+          pdf_gen = PDFGenerator(database='Students')
+          pdf_gen.connect()
+          pdf_gen.clear_students_file()  
+          pdf_gen.close()
+          tk.messagebox.showinfo("Reset", "The students database has been reset.")
+      except Exception as e:
+          tk.messagebox.showerror("Error", f"An error occurred: {str(e)}")
+
+
+
+
+  
             
     
     def prepare_exam():
